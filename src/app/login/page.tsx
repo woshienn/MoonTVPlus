@@ -384,9 +384,13 @@ function LoginPageClient() {
               onClick={() => window.location.href = '/api/auth/oidc/login'}
               className='mt-4 w-full inline-flex justify-center items-center rounded-lg border-2 border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-zinc-800/60 py-3 text-base font-semibold text-gray-700 dark:text-gray-200 shadow-sm transition-all duration-200 hover:bg-gray-50 dark:hover:bg-zinc-700/60'
             >
-              <svg className='w-5 h-5 mr-2' fill='currentColor' viewBox='0 0 20 20'>
-                <path fillRule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clipRule='evenodd' />
-              </svg>
+              {(siteConfig?.OIDCButtonText || '').toLowerCase().includes('linuxdo') ? (
+                <img src='/icons/linuxdo.png' alt='LinuxDo' className='w-5 h-5 mr-2' />
+              ) : (
+                <svg className='w-5 h-5 mr-2' fill='currentColor' viewBox='0 0 20 20'>
+                  <path fillRule='evenodd' d='M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z' clipRule='evenodd' />
+                </svg>
+              )}
               {siteConfig?.OIDCButtonText || '使用OIDC登录'}
             </button>
           </div>
